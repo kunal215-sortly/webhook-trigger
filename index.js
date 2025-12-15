@@ -16,6 +16,7 @@ app.use((req, res, next) => {
   next();
 });
 
+
 // POST /invoke-webhook
 app.post('/invoke-webhook', async (req, res) => {
   const { webhookUrl, text } = req.body;
@@ -34,6 +35,12 @@ app.post('/invoke-webhook', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+});
+
+// POST /create-job
+app.post('/create-job', (req, res) => {
+  console.log('Received /create-job payload:', req.body);
+  res.status(200).send('Payload received.');
 });
 
 const PORT = process.env.PORT || 3000;
