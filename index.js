@@ -1,6 +1,8 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import crypto from 'crypto';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -53,13 +55,16 @@ app.post('/create-job', async (req, res) => {
   console.log('URL:', req.originalUrl);
   console.log('-----------------------------------');
 
+  console.log('token: ', token);
+  console.log('companyId: ', companyId);
+
   if (req.body.text) {
     try {
       const apiResponse = await fetch(`https://pro-api-qa.sortly.co/v2/companies/${companyId}/nodes`, {
         method: 'POST',
         headers: {
           'accept': 'application/json',
-          'authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${token}`,
           'accept-language': 'en-US,en;q=0.9,hi;q=0.8',
           'cache-control': 'no-cache',
             'content-type': 'application/json',
