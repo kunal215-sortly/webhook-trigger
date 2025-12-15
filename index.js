@@ -2,8 +2,10 @@ import express from 'express';
 import fetch from 'node-fetch';
 
 
+
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // CORS middleware to allow browser requests
 app.use((req, res, next) => {
