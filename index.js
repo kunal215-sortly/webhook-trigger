@@ -39,7 +39,13 @@ app.post('/invoke-webhook', async (req, res) => {
 
 // POST /create-job
 app.post('/create-job', (req, res) => {
-  console.log('Received /create-job payload:', req.body);
+  console.log('--- Incoming /create-job request ---');
+  console.log('Headers:', req.headers);
+  console.log('Query:', req.query);
+  console.log('Body:', req.body);
+  console.log('Method:', req.method);
+  console.log('URL:', req.originalUrl);
+  console.log('-----------------------------------');
   res.status(200).send('Payload received.');
 });
 
