@@ -1,8 +1,6 @@
 import express from 'express';
 import fetch from 'node-fetch';
 
-
-
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,7 +28,7 @@ app.post('/invoke-webhook', async (req, res) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        "text": text
+        "text": "/create-job job1 " + text
       })
     });
     res.status(200).json({ success: true });
