@@ -54,7 +54,7 @@ app.post('/create-job', async (req, res) => {
 
   if (req.body.text) {
     try {
-      const apiResponse = await fetch(`https://api.sortly.com/v2/companies/${companyId}/nodes`, {
+      const apiResponse = await fetch(`https://pro-api-qa.sortly.co/v2/companies/${companyId}/nodes`, {
         method: 'POST',
         headers: {
           'accept': 'application/json',
