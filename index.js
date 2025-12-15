@@ -95,7 +95,7 @@ app.post('/create-job', async (req, res) => {
         })
       });
       const apiResult = await apiResponse.json().catch(() => ({}));
-      res.status(200).json({ message: 'Successfully created folder' });
+      res.status(200).json('Successfully created folder');
     } catch (err) {
       res.status(500).json({ error: 'Failed to call Sortly API', details: err.message });
     }
