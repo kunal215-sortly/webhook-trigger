@@ -1,5 +1,6 @@
 import express from 'express';
 import fetch from 'node-fetch';
+import crypto from 'crypto';
 
 const app = express();
 app.use(express.json());
@@ -70,7 +71,7 @@ app.post('/create-job', async (req, res) => {
         body: JSON.stringify({
           "include_acl": true,
           "node": {
-            "id": "0d1b2732-d53f-4eb5-93d4-fe21095a1be3",
+            "id": crypto.randomUUID(),
             "parent_id": null,
             "is_item": false,
             "name": req.body.text,
