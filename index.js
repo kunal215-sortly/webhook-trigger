@@ -40,7 +40,7 @@ app.post('/invoke-webhook', async (req, res) => {
   }
 });
 
-const shouldUseKunalToken = true;
+const shouldUseKunalToken = false;
 
 const token = shouldUseKunalToken ? process.env.KUNAL_ACCESS_TOKEN : process.env.ASHWIN_ACCESS_TOKEN;
 const companyId = shouldUseKunalToken ? process.env.KUNAL_COMPANY_ID : process.env.ASHWIN_COMPANY_ID;
